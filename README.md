@@ -8,7 +8,7 @@ This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https
 
 ## Table of contents
 
-- [Overview](#overview
+- [Overview](#overview)
 - [Built with](#built-with)
   
 
