@@ -93,7 +93,7 @@ const lightModeEnable = function(){
 
 const modeToggle =  document.querySelector('#dark-light-toggle');
 modeToggle.focus()
-modeToggle.setAttribute('tabindex', 1);
+modeToggle.setAttribute('tabindex', 0);
 
 ['click','keypress'].forEach((event)=>{
     modeToggle.addEventListener(event,(e)=>{
