@@ -1,0 +1,655 @@
+
+@font-face {
+    font-family: Rubik;
+    src: url('assets/fonts/Rubik-VariableFont_wght.ttf');
+}
+
+
+@font-face {
+    font-family: Rubik-italic;
+    src:url('assets/fonts/Rubik-Italic-VariableFont_wght.ttf');
+}
+
+
+
+
+:root {
+
+    /* Primary Colors */
+    --Primary : #313E51;/*Dark-Navy */
+    --Secondary : #FFFFFF ; /*White */
+
+    --White : #FFFFFF;
+    
+
+    --Primary-Para : #626C7F; 
+    --Secondary-Para: #ABC1E1;
+
+    --Bluish-Light: #ABC1E1;
+
+    --Grey-Navy : #626C7F; 
+
+    --Light-Grey :#F4F6FA;
+    --background-color :#F4F6FA;
+
+    --Green :#26D782;
+
+
+    --Navy : #3B4D66;
+    --Purple : #A729F5;
+
+    --warning : #EE5454;
+    --Red : #EE5454; 
+    
+
+    /* font family */
+    --Rubik : Rubik;
+    --Rubik-Italic : Rubik-italic;
+
+    /* Font sizes */
+    --Body-S : 12px;
+    --fs-Body-desktop : 20px;
+    
+    --Heading-S : 28px;
+    --Heading-M : 40px;
+    --Heading-L-Regular : 64px;
+    --Heading-L-Bold : 64px;
+
+    --fs-Display-mobile: 88px;
+
+    /*font weight */
+
+    --Light : 300;
+    --bold : 500;
+
+ 
+    /** Dark and Light Mode */
+    --background-image : url('assets/images/pattern-background-mobile-light.svg') no-repeat;
+}
+
+.darkmode {
+
+      /* Primary Colors */
+      --Primary : #FFFFFF;/* White */
+      --Secondary : #313E51 ; /* Dark navy*/
+
+      --Primary-Para :  #ABC1E1;
+      --Secondary-Para:  #626C7F;
+      
+      --warning: #FFFFFF;
+      --background-color : #3B4D66;;
+   
+      --background-image :  url('assets/images/pattern-background-mobile-dark.svg') no-repeat;
+}
+
+
+/* CSS Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+
+* {
+   margin: 0;
+}
+
+html,body {
+  height: 100vh;
+}
+
+/* Media defaults */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+/* Typography reset */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+
+body {
+    font-family: var(--Rubik);
+    color: var(--Primary);
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+
+}
+
+
+/*Small Heading */
+.small-heading {
+    font-size : 18px;
+    font-weight: var(--bold);
+}
+
+body::before {
+    content:"";
+    background:var(--background-image);
+    position: absolute;
+    background-color: var(--background-color);
+    inset: 0; /*shorthand for top right bottom left */
+
+}
+
+/*header  */
+.header {
+    width: clamp(327px, 90%, 1160px);
+    display: flex;
+    /* margin: 1.5rem 1.5rem 0 1.5rem; */
+    isolation: isolate;
+
+}
+
+.light-dark-toggle-section{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mode-icon {
+
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+/* Creating a toggle Switch */
+input {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    width: 2.5rem;
+    height: 1.75rem;
+    border-radius: 1rem;
+
+    background-color: var(--Purple);
+    cursor: pointer;
+    outline: none;
+}
+
+input::after{
+    content:'';
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    height: 1.25rem;
+    width: 1.25rem;
+    transform: translate(-50%,-50%);
+    border-radius: 100%;
+    background-color: var(--White);
+    transition: left .3s;
+}
+
+input:checked::after{
+   left: 65%;
+}
+
+
+/* Header End */
+
+
+/* /////////////////////// */
+
+/* Main */
+main {
+   width: clamp(327px, 90%, 1160px);
+   margin: 0  4rem  0 4rem;
+   isolation: isolate;
+   
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 2rem;
+}
+
+
+/* main heading  WELCOME PAGE */
+
+
+.welcome-container {
+   display: none;
+}
+
+.welcome-container-active {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width:100%;
+    
+}
+
+.main-heading {
+    font-size: var(--Heading-M);
+    font-family:var(--Rubik) ;
+    font-weight: 300;
+}
+
+strong {
+    font-weight: var(--bold);
+}
+
+
+.main-paragraph{
+   font-size: var(--Body-S);
+   font-style: italic;
+   color: var(--Primary-Para)
+     
+}
+
+
+/* subject Icon */
+
+
+.quiz-select {
+    display: none;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+
+.quiz-select-active{
+    display: flex;
+    width: 100%
+}
+
+
+
+/* Quiz  Each subject */
+.subject-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+
+/* Each subject question header */
+.quiz-subject {
+    display:none;
+}
+
+.quiz-subject-active {
+    display: flex;
+    gap:1.5rem;
+}
+
+
+.subject {
+    display: flex;
+    gap: 2rem;
+    border-radius: 1rem;
+    background-color: var(--Secondary);
+    padding: 0.75rem;
+}
+
+
+.subject-name {
+
+    line-height: 3.5rem;
+    font-weight: var(--bold);
+}
+
+
+.subject-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+    background-color:var(--Light-Grey);
+}
+
+
+.question-section-part-one{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+
+/* Progress Bar */
+.progress-bar {
+    margin-top: 1.5rem;
+    height:1rem;
+    width: 100%;
+    padding: 0.25rem;
+    /* background: var(--Red); */
+    border-radius: 1rem;
+    border: 0.25rem solid var(--White);
+}
+
+/* .question-submit-container {
+    display: none;
+}
+
+.question-submit-container-active {
+    display: block;
+    width: 100%;
+} */
+
+/* Question and Multiple options Section */
+.question-section {
+    display: none;
+}
+
+
+.question-section-active {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.question-number {
+    font-style: italic;
+    color: var(--Primary-Para)
+}
+
+.question {
+    font-size: 1.25rem;
+    font-weight: var(--bold);
+}
+
+
+.question-section-part-two {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
+/* Options */
+.options {   
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+}
+
+
+.option-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    background-color: var(--Secondary);
+}
+
+
+
+.selected-option {
+    border : 2px solid var(--Purple)
+}
+
+
+/*Specificity 0*/
+.option-number {
+    text-align: center;
+    line-height: 2.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: var(--Grey-Navy);
+    background-color:var(--Light-Grey) ;
+    border-radius: 0.4rem;
+
+}
+
+/*Specificity 1 */
+.selected-option-img-hover {
+    background-color:rgb(167, 41, 245,0.1) ;
+    color: var(--Purple);
+}
+
+/*Specificity 2 */
+.selected-option-img {
+    background-color: var(--Purple);
+    color:var(--White)
+}
+
+
+/* if correct answer */
+.selected-option-correct {
+    border: 2px solid var(--Green);
+}
+
+.selected-option-img-correct {
+    background-color: var(--Green);
+}
+
+
+/* If incorrect answer */
+.selected-option-incorrect {
+    border: 2px solid var(--Red);
+}
+
+.selected-option-img-incorrect {
+    background-color: var(--Red);
+}
+
+
+
+.option-content {
+    line-height: 2.5rem;
+}
+
+.answer-validity-icon {
+    margin-left: auto;
+}
+
+
+
+
+/* Submit and Next button */
+.btn {
+    background-color: var(--Purple);
+    border-radius: 0.5rem;
+    border: 0;
+    display: none;
+    width: 100%;
+    padding: 1rem;
+    color: var(--White)
+}
+
+.btn:hover , .btn:focus {
+    background-color: var(--Bluish-Light);
+}
+
+
+.submit-answer-active {
+    display: block
+}
+
+.next-question-active{
+    display: block
+}
+
+
+
+/* Error Message (not selecting an option) */
+
+.error-container {
+    display: none;
+
+}
+
+.error-container-active {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.error-container-active p {
+    color : var(--warning);
+    line-height : 2.5rem;
+}
+
+
+
+
+/* Final result section */
+.final-result-section {
+    display: none;
+}
+
+.final-result-section-active {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+
+}
+
+
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+
+    width:100%;
+    background-color: var(--Secondary);
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem;
+}
+
+.subject-scored {
+    line-height: 3rem;
+}
+
+
+.score {
+    font-size: var(--fs-Display-mobile);
+
+}
+
+.score-out-of {
+    font-size: 1.25rem;
+    color: var(--Primary-Para);
+
+}
+
+.btn-play-again-active{
+    display: block;
+}
+
+
+
+@media only screen and (min-width:640px){
+
+
+    :root {
+        --background-image :  url('assets/images/pattern-background-tablet-light.svg') no-repeat;
+    }
+
+    .darkmode{
+        --background-image :  url('assets/images/pattern-background-tablet-dark.svg') no-repeat;
+    }
+
+
+
+    .main-heading {
+        font-size: var(--Heading-L-Regular);
+
+    }
+    
+    .main-paragraph{
+       font-size: var(--fs-Body-desktop);
+         
+    }
+}
+
+
+
+@media only screen and (min-width:1140px){
+
+
+    :root {
+        --background-image :  url('assets/images/pattern-background-desktop-light.svg') no-repeat;
+    }
+
+    .darkmode{
+        --background-image :  url('assets/images/pattern-background-desktop-dark.svg') no-repeat;
+    }
+
+
+    /* Welcome Section */
+
+    main {
+
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-between;
+
+    }
+
+    .welcome-container-active {
+        width: 100%
+    }
+
+    .quiz-select-active{
+        width: 100%
+    }
+
+    .main-heading {
+         font-size: var(--Heading-L-Regular)
+    }
+
+    .main-paragraph{
+        font-size: var(--fs-Body-desktop);
+    }
+
+
+
+    /* Question Section */
+
+
+    .question-section-active{
+
+        flex-direction: row;
+        justify-content: space-between;
+      
+    }
+
+    .question-section-part-one {
+        gap: 1.25rem;
+        width: 465px;
+    }
+    
+    .progress-bar{
+
+        margin-top: 11.5rem
+    }
+ 
+
+    .options{
+        width: 564px;
+    }
+
+   
+
+}
